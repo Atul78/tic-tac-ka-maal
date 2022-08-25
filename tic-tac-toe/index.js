@@ -44,33 +44,69 @@ function Matrix() {
                     if(count % 2 == 0) {
                          a = z.innerText = player1;
                         // z.innerText = player1;
-                        console.log(a);
+                        // console.log(a);
                         count++;
                         count2++;
                         div.addEventListener('click',Store(a, j, i));
+                        if(a !== "") {
+                            Inspect(arr, j, i);
+                        }
 
-                        // if(k.id == `${j}${i}` && k.id == `${j}${i+1}` && k.id == `${j}${i+2}` ) {
-                        //     console.log("player1 is winner")
+
+                        // for(let i = 0; i < arr.length; i++) {
+                        //     for(let j = 0; j < arr.length; j++) {
+                        //         console.log(arr[i][j]);
+                        //     }
                         // }
                 }
                 else {
                     let b = z.innerText = player2;
-                    console.log(b)
+                    // console.log(b)
                     count++;
                     count2++;
                     div.addEventListener('click',Store(b, j, i));
+                    if(b !== "") {
+                        Inspect(arr, j, i)
+                    }
                 }
                 }        
             })
         }
-        
     }
+}
+
+//Check
+function Inspect(arr, j , i) {
+   for(let a = 0; a < arr.length; a++) {
+    let arr1 = [];
+    let arr2 = [];
+    for(let b = 0; b < arr.length; b++) {
+            // if(arr[b][a] == "O") {
+            //     arr1.push(player2)
+            // }
+            // else if(arr[b][a] == "X") {
+            //     arr2.push(player1);
+            // }
+            console.log(a,b)
+        }
+        // if(arr1.length >= 3) {
+        //     console.log("OK");
+        // }
+        // if(arr2.length >= 3) {
+        //     console.log("OK2")
+        // }
+        }
+   }
+
+function system() {
+
 }
 
 
 // var Square = new Array();
 function Store(variable,j,i) {
     arr[j][i] = variable;
+    // console.log(arr);
     // if(a == 'O') {
     //     if(a == "O") {
     //         console.log("OK")
