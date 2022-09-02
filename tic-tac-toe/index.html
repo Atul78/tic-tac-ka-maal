@@ -1,22 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
     <div class="container">
-        <div class="container1">
-            <!-- <input type="number" alt="Error" id="myText" value="45" /> -->
-            <button onclick="myFunction()">Start</button>
+      <div class="container1">
+        <h4>Enter Your Matrix Here</h4>
+        <!-- <input type="number" alt="Error" id="myText" value="45" /> -->
+        <input type="number" value="3" id="inp" />
+        <div class="buttons">
+          <div id="one">
+            <button onclick="Matrix()">Start</button>
+          </div>
+          <div><button onClick = "CopyBtn()">Copy</button></div>
+          <div id="two">
+            <button onclick="location.reload()">Restart</button>
+          </div>
         </div>
-        <div id="container2">
-            
+      </div>
+      <div id="container2"></div>
+      <div id="Winner2">
+        <div id="Winner"></div>
+      </div>
+      <div id = 'Tie'></div>
+
+
+      <!-- Copy starts from here -->
+      <div class="ok">
+        <div id="container3"></div>
+        <div id="Winner1">
+          <div id="result"></div>
         </div>
+        <div id = 'Tie2'></div>
+        <p id="Timer2"></p>
+      </div>
     </div>
     <script src="./index.js"></script>
-</body>
+    <script>
+              // if (obj["O"] == "") {
+        //   obj["O"] = `${player2} Won`;
+        //   WINNER();
+        //   console.log(obj)
+        // }
+        // rowLen = "";
+
+              //1st Method
+
+      // if((arr[i][j] == player2 && i == 0 && j == val - 1)) {
+      //     IInd_Diag_O[z] = player2;
+      //     z++;
+      //     console.log(z)
+      //     // console.log(IInd_Diag_O);
+      //   }
+      //   if((arr[i][j] == player2 && i == j)) {
+      //       IInd_Diag_O[z] = player2;
+      //   z++;
+      //   console.log(z);
+      // }
+      // if((arr[i][j] == player2 && i == val - 1 && j == 0 && i !== j)) {
+      //   IInd_Diag_O[z] = player2;
+      //   z++;
+      //   console.log(z);
+      // }
+      // if(z == 3) {
+      //     Win.innerText = `${player2} ok 2 Won`;
+      // }
+
+
+            // 2nd method
+
+      // if(arr[i][j] == player2 && i + j == (val - 1)) {
+      //   z++;
+      //   if(z == 3) {
+      //     console.log('Jeet gye be tum');
+      //     Win.innerText = `player ${player2} Won`;
+      //   }
+      // }
+      // if(arr[i][j] == player1 && i + j == (val - 1)) {
+      //   x++;
+      //   if(x == 3) {
+      //     console.log('Jeet gye be tum');
+      //     Win.innerText = `player ${player2} Won`
+      //   }
+      // }
+
+
+
+      //For Warning Logic
+
+//       function Warning_check(arr, i, j, player, rowLength) {
+//   if (rowLength == val - 1 && arr[i][j] == player) {
+//     Timer.style.display = 'none';
+//     // rowLen = 0;
+//   }
+// }
+
+// function Warning_check_Col(arr, i, j, player, col){
+//   if (col == val - 1 && arr[i][j] == player) {
+//     Timer.style.display = 'none';
+//     // rowLen = 0;
+//   }
+// }
+
+
+// function Warning_check_Diagonal(arr, i, j, player_1, dia) {
+//   if (dia == val - 1 && arr[i][j] == player_1) {
+//     Timer.style.display = 'none';
+//     // rowLen = 0;
+//   }
+// }
+    </script>
+  </body>
 </html>
