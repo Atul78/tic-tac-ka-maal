@@ -1,16 +1,69 @@
-#container2 {
-    border: 2px solid red;
+#container2, #container3 {
     display: flex;
     max-width: 100%;
     /* flex-direction: row; */
     padding: 10px;
-    height: 100vh;
+    height: 25vh;
 }
 
 .box {
-    border: 2px solid rgb(255, 4, 4);
+    border: 2px solid rgb(98, 139, 51);
     width: 25px;
+    border-radius: 5px;
     padding: 15px;
     height: 20px;
-    background-color: #f59d9d;
+    background-color: #ace79d;
+    cursor: pointer;
 }
+.disabled {
+    pointer-events: none;
+}
+.buttons {
+    display: flex;
+    margin-top: 20px;
+}
+button {
+    cursor: pointer;
+}
+button:hover {
+    color: black;
+    border-radius: 5px;
+}
+#one {
+    height: 50px;
+    width: 50px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+#two {
+    margin-left: 10px;
+}
+.container {
+    margin-left: 45%;
+}
+.Winner{
+max-width: 22%;
+position: relative;
+padding: 10px;
+color: white;
+border-radius: 5px;
+background-color: green;
+text-align: center;
+font-size: large;
+}
+
+.Looser{
+    max-width: 22%;
+    position: relative;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(238, 55, 55);
+    text-align: center;
+    font-size: large;
+    }
+#Winner2 {
+    margin-top: 5%;
+}
+
+
