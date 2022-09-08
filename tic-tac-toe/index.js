@@ -12,19 +12,36 @@ var arr = [];
 var val = 0;
 let bool = true;
 let mat_arr = [];
-let copy_arr = "";
 let a = 0;
 let b = 0;
+
+// let array = [
+//   {
+//     Movement : 0,
+//     new_arr : [],
+//     new_bool : true,
+//     copy_arr,
+//   }
+// ]
+  // mat_arr : arr
+let obj = {
+  arr
+};
+
+let num = 0;
+
+
 function Matrix() {
+
   if (bool) {
     // bool = false;
     bool = false;
     val = document.getElementById("inp").value;
     //This loop is because we can check condition in 2d array
     for (var i = 0; i < val; i++) {
-      arr[i];
+      obj.arr[i];
       for (var j = 0; j < val; j++) {
-        arr[j] = [];
+        obj.arr[j] = [];
       }
     }
     //This loop is creating matrix
@@ -52,12 +69,12 @@ function Matrix() {
               let a = (z.innerText = player1);
               count++;
               div.addEventListener("click", Store(a, j, i));
-              Inspect(arr);
+              Inspect(obj);
             } else {
               let b = (z.innerText = player2);
               count++;
               div.addEventListener("click", Store(b, j, i));
-              Inspect(arr);
+              Inspect(obj);
             }
           }
         });
@@ -66,23 +83,21 @@ function Matrix() {
   }
 }
 function Store(variable, j, i) {
-  arr[j][i] = variable;
-  console.log(arr)
+  obj.arr[j][i] = variable;
+  // console.log(arr)
   if (variable == player1) {
     a = j;
     b = i;
     console.log("Done");
-    copy_arr = variable;
   }
   if (variable == player2) {
     a = j;
     b = i;
-    copy_arr = variable;
     console.log("Done2");
   }
 }
 
-function Inspect(arr) {
+function Inspect(obj) {
   let ODiag = [];
   let XDiag = [];
   let k = 0;
@@ -96,74 +111,75 @@ function Inspect(arr) {
     let col1 = 0;
     let col2 = 0;
     for (let j = 0; j < val; j++) {
-      if (arr[i][j] == player2) {
+      if (obj.arr[i][j] == player2) {
         rowLen++;
-      } else if (arr[i][j] == player1) {
+      } else if (obj.arr[i][j] == player1) {
         rowLen2++;
       }
       if (rowLen2 == val) {
-        Win.classList.add("Winner");
+        // Win.classList.add("Winner");
         Win.innerText = `Player ${player1} Winner`;
       }
       if (rowLen == val) {
-        Win.classList.add("Winner");
+        // Win.classList.add("Winner");
         Win.innerText = `Player ${player2} Winner`;
       }
       //ColumnsWise
-      if (arr[j][i] == player1) {
+      if (obj.arr[j][i] == player1) {
         col1++;
         if (col1 == val) {
-          Win.classList.add("Winner");
+          // Win.classList.add("Winner");
           Win.innerText = `Player ${player1} Winner`;
         }
-      } else if (arr[j][i] == player2) {
+      } else if (obj.arr[j][i] == player2) {
         col2++;
         if (col2 == val) {
-          Win.classList.add("Winner");
+          // Win.classList.add("Winner");
           Win.innerText = `Player ${player2} Winner`;
         }
       }
       // Diagonal Wise
-      if (i == j && arr[i][j] == player2) {
+      if (i == j && obj.arr[i][j] == player2) {
         ODiag[k] = player2;
         k++;
         if (ODiag.length == val) {
-          Win.classList.add("Winner");
+          // Win.classList.add("Winner");
           Win.innerText = `Player ${player2} Winner`;
         }
-      } else if (arr[i][j] == player1 && i == j) {
+      } else if (obj.arr[i][j] == player1 && i == j) {
         XDiag[k1++] = player1;
         if (XDiag.length == val) {
           Win.innerText = `Player ${player1} Winner`;
         }
       }
       //2nd Diagonal
-      if (arr[i][j] == player2 && i + j == val - 1) {
+      if (obj.arr[i][j] == player2 && i + j == val - 1) {
         z++;
         if (z == val) {
-          Win.classList.add("Winner");
+          // Win.classList.add("Winner");
           Win.innerText = `Player ${player2} Winner`;
         }
       }
-      if (arr[i][j] == player1 && i + j == val - 1) {
+      if (obj.arr[i][j] == player1 && i + j == val - 1) {
         x++;
         if (x == val) {
-          Win.classList.add("Winner");
+          // Win.classList.add("Winner");
           Win.innerText = `Player ${player1} Winner`;
         }
       }
-      if (
-        rowLen == val ||
-        rowLen2 == val ||
-        col1 == val ||
-        col2 == val ||
-        ODiag.length == val ||
-        XDiag.length == val ||
-        z == val ||
-        x == val
-      ) {
-        Win.classList.add("Winner");
-      } else if (
+      // if (
+      //   rowLen == val ||
+      //   rowLen2 == val ||
+      //   col1 == val ||
+      //   col2 == val ||
+      //   ODiag.length == val ||
+      //   XDiag.length == val ||
+      //   z == val ||
+      //   x == val
+      // ) {
+      //   Win.classList.add("Winner");
+      // } 
+      else if (
         rowLen != val ||
         rowLen2 != val ||
         col1 != val ||
@@ -173,9 +189,9 @@ function Inspect(arr) {
         x != val
       ) {
         if (i == val - 1 && j == val - 1 && Win.innerText !== "Winner") {
-          Movement1++;
-          if (Movement1 == val * val) {
-            Tie.classList.add("Looser");
+          Movement++;
+          if (Movement == val * val) {
+            // Tie.classList.add("Looser");
             Tie.innerText = "It's a Tie";
           }
         }
@@ -184,9 +200,27 @@ function Inspect(arr) {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Copy of Previous Matrix
 var div2;
 let increment = 1;
+let result = document.getElementById("result");
+let Tie2 = document.getElementById("Tie2");
 function CopyBtn() {
   let boolean = true;
   for (var i = 0; i < val; i++) {
@@ -197,7 +231,18 @@ function CopyBtn() {
   }
   // mat_arr = [...arr];
   // console.log(mat_arr)
+  // array.push(board);  
+  // console.log(array[num])
+  // console.log(array[num])
+  // num++;
+  // console.log(num)
+  // board.Age = 24;
 
+  mat_arr = [...arr];
+  console.log("New Array");
+  console.log(mat_arr);
+  console.log("Old Array");
+  console.log(arr);
   if (!bool) {
     for (let i = 0; i < val; i++) {
       // if(i == val - 1) {
@@ -213,27 +258,27 @@ function CopyBtn() {
         div2 = document.createElement("div");
         div2.classList.add("box");
         div2.setAttribute("id", `${increment}_${j}${i}`);
-        console.log(increment);
+        // console.log(increment);
    
         increment++;
         let z = parent.appendChild(div2);
-        mat_arr[j][i] = arr[j][i];
+        // mat_arr[j][i] = arr[j][i];
         // let id = document.getElementById('id', )
         // if(div2.innerText == "") {
         // if(increment >= 1) {
         //  console.log(j,i)
-        console.log(mat_arr);
+        // console.log(mat_arr);
         //  if(div2.id == `${a}${b}`) {
         // console.log(a,b)
-        if (mat_arr[j][i] != undefined) {
-          div2.innerText = mat_arr[j][i];
-          if (mat_arr[j][i] == undefined) {
+        if (obj.arr[j][i] != undefined) {
+          div2.innerText = obj.arr[j][i];
+          if (obj.arr[j][i] == undefined) {
             div2.innerText = "";
           }
         }
         div2.addEventListener("click", () => {
           let div2id = document.getElementById(`${increment}_${j}${i}`);
-          if (z.innerText == "" && Win.innerText == "") {
+          if (z.innerText == "" && result.innerText == "") {
             //odd and even logic, if even player X will move else player O
             if (count3 % 2 == 0) {
               let a = (z.innerText = player1);
@@ -253,7 +298,7 @@ function CopyBtn() {
   }
 }
 function Store2(variable, j, i) {
-  mat_arr[j][i] = variable;
+  arr[j][i] = variable;
   console.log(mat_arr)
 }
 
@@ -279,25 +324,25 @@ function Inspect2(mat_arr) {
         rowLen2++;
       }
       if (rowLen2 == val) {
-        Win.classList.add("Winner");
-        Win.innerText = `Player ${player1} Winner`;
+        // result.classList.add("Winner");
+        result.innerText = `Player ${player1} Winner`;
       }
       if (rowLen == val) {
-        Win.classList.add("Winner");
-        Win.innerText = `Player ${player2} Winner`;
+        // result.classList.add("Winner");
+        result.innerText = `Player ${player2} Winner`;
       }
       //ColumnsWise
       if (arr[j][i] == player1) {
         col1++;
         if (col1 == val) {
-          Win.classList.add("Winner");
-          Win.innerText = `Player ${player1} Winner`;
+          // result.classList.add("Winner");
+          result.innerText = `Player ${player1} Winner`;
         }
       } else if (mat_arr[j][i] == player2) {
         col2++;
         if (col2 == val) {
-          Win.classList.add("Winner");
-          Win.innerText = `Player ${player2} Winner`;
+          // result.classList.add("Winner");
+          result.innerText = `Player ${player2} Winner`;
         }
       }
       // Diagonal Wise
@@ -305,42 +350,43 @@ function Inspect2(mat_arr) {
         ODiag[k] = player2;
         k++;
         if (ODiag.length == val) {
-          Win.classList.add("Winner");
-          Win.innerText = `Player ${player2} Winner`;
+          // result.classList.add("Winner");
+          result.innerText = `Player ${player2} Winner`;
         }
       } else if (mat_arr[i][j] == player1 && i == j) {
         XDiag[k1++] = player1;
         if (XDiag.length == val) {
-          Win.innerText = `Player ${player1} Winner`;
+          result.innerText = `Player ${player1} Winner`;
         }
       }
       //2nd Diagonal
       if (mat_arr[i][j] == player2 && i + j == val - 1) {
         z++;
         if (z == val) {
-          Win.classList.add("Winner");
-          Win.innerText = `Player ${player2} Winner`;
+          // result.classList.add("Winner");
+          result.innerText = `Player ${player2} Winner`;
         }
       }
       if (mat_arr[i][j] == player1 && i + j == val - 1) {
         x++;
         if (x == val) {
-          Win.classList.add("Winner");
-          Win.innerText = `Player ${player1} Winner`;
+          // result.classList.add("Winner");
+          result.innerText = `Player ${player1} Winner`;
         }
       }
-      if (
-        rowLen == val ||
-        rowLen2 == val ||
-        col1 == val ||
-        col2 == val ||
-        ODiag.length == val ||
-        XDiag.length == val ||
-        z == val ||
-        x == val
-      ) {
-        Win.classList.add("Winner");
-      } else if (
+      // if (
+      //   rowLen == val ||
+      //   rowLen2 == val ||
+      //   col1 == val ||
+      //   col2 == val ||
+      //   ODiag.length == val ||
+      //   XDiag.length == val ||
+      //   z == val ||
+      //   x == val
+      // ) {
+      //   result.classList.add("Winner");
+      // } 
+      else if (
         rowLen != val ||
         rowLen2 != val ||
         col1 != val ||
@@ -349,11 +395,11 @@ function Inspect2(mat_arr) {
         (XDiag.length != val) | (z != val) ||
         x != val
       ) {
-        if (i == val - 1 && j == val - 1 && Win.innerText !== "Winner") {
+        if (i == val - 1 && j == val - 1 && result.innerText !== "Winner") {
           Movement1++;
           if (Movement1 == val * val) {
             Tie.classList.add("Looser");
-            Tie.innerText = "It's a Tie";
+            Tie2.innerText = "It's a Tie";
           }
         }
       }
