@@ -1,9 +1,14 @@
-#container2, #container3 {
+#container2{
     display: flex;
-    max-width: 100%;
-    /* flex-direction: row; */
-    padding: 10px;
+    /* max-width: 100%; */
+    flex-direction: column;
+    /* padding: 10px; */
     height: 25vh;
+}
+
+#_in0 {
+display: flex;
+/* justify-content: center; */
 }
 
 .box {
