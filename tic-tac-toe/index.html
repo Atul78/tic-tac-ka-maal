@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Copy</title>
     <link rel="stylesheet" href="index.css" />
+    <script src="./index.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -17,30 +18,34 @@
           <div id="one">
             <button onclick="Matrix()">Start</button>
           </div>
-          <div><button onClick = "CopyBtn()">Copy</button></div>
+          <div><button onClick = "CopyBtn()" id="hide" >Copy</button></div>
           <div id="two">
             <button onclick="location.reload()">Restart</button>
           </div>
         </div>
       </div>
-      <div id="container2"></div>
-      <div id="Winner2">
-        <div id="Winner"></div>
+      <div id="container2">
+        
       </div>
-      <div id = 'Tie'></div>
+      <!-- <div id="Winner2"> -->
+        <!-- <div id="Winner"></div> -->
+      <!-- </div> -->
+      <!-- <div id = 'Tie'></div> -->
+      </div>
+
 
 
       <!-- Copy starts from here -->
-      <div class="ok">
+      <!-- <div class="ok">
         <div id="container3"></div>
         <div id="Winner1">
-          <div id="result"></div>
+          <p id="result"></p>
         </div>
         <div id = 'Tie2'></div>
         <p id="Timer2"></p>
       </div>
-    </div>
-    <script src="./index.js"></script>
+    </div> -->
+
     <script>
               // if (obj["O"] == "") {
         //   obj["O"] = `${player2} Won`;
@@ -114,6 +119,180 @@
 //     // rowLen = 0;
 //   }
 // }
+
+
+
+
+
+
+
+// //Lets' copy the button using other function
+// let Timer2 = document.getElementById("Timer");
+// let result = document.getElementById("result");
+// let Tie2 = document.getElementById("Tie2");
+// let div2 = document.getElementById("ok");
+// let bool1 = true;
+// let arr1 = [];
+// let count1 = 0;
+// let Movement1 = 0;
+// function CopyBtn() {
+//   if (bool1) {
+//     bool1 = false;
+//     //This loop is because we can check condition in 2d array
+//     for (var i = 0; i < val; i++) {
+//       arr1[i];
+//       for (var j = 0; j < val; j++) {
+//         arr1[j] = [];
+//       }
+//     }
+
+//     //This loop is creating matrix
+//     //column Creation loop
+//     for (let i = 0; i < val; i++) {
+//       var parent1 = document.createElement("div");
+//       var container3 = document.getElementById("container3");
+//       parent1.classList.add("print");
+//       container3.appendChild(parent1);
+//       //Row Creation loop
+//       for (let j = 0; j < val; j++) {
+//         var div3 = document.createElement("div");
+//         div3.classList.add("box");
+//         div3.setAttribute("id", `${j}${i}`);
+//         let z = parent1.appendChild(div3);
+//         //onClick event on each box
+//         div3.addEventListener("click", () => {
+//           let k = document.getElementById(`${j}${i}`);
+
+//           if (z.innerText == "" && result.innerText == "") {
+//             //odd and even logic, if even player X will move else player O
+//             if (count1 % 2 == 0) {
+//               let a = z.innerText = player1;
+//               count1++;
+//               div3.addEventListener("click", Store2(a, j, i));
+//               if (a !== "") {
+//                 Inspect2(arr1, j, i);
+//               }
+//             } else {
+//               let b = (z.innerText = player2);
+//               count1++;
+//               div3.addEventListener("click", Store2(b, j, i));
+//               if (b !== "") {
+//                 Inspect2(arr1, j, i);
+//               }
+//             }
+//           }
+//         });
+//       }
+//     }
+//   }
+// }
+
+// function Inspect2(arr1) {
+
+//   let ODiag = [];
+//   let XDiag = [];
+//   let k = 0;
+//   let k1 = 0;
+//   //2nd Diagonal Variable
+//   let z = 0;
+//   let x = 0;
+//   for (let i = 0; i < val; i++) {
+//     let rowLen = 0;
+//     let rowLen2 = 0;
+//     let col1 = 0;
+//     let col2 = 0;
+//     for (let j = 0; j < val; j++) {
+//         if (arr1[i][j] == player2) {
+//         rowLen++;
+//       } else if (arr1[i][j] == player1) {
+//         rowLen2++;
+//       }
+//       if (rowLen2 == val) {
+//         result.classList.add("Winner");
+//         result.innerText = `Player ${player1} Winner`;
+//       }
+//       if (rowLen == val) {
+//         result.classList.add("Winner");
+//         result.innerText = `Player ${player2} Winner`;
+//       }
+//       //ColumnsWise
+//       if (arr1[j][i] == player1) {
+//         col1++;
+//         if (col1 == val) {
+//           result.classList.add("Winner");
+//           result.innerText = `Player ${player1} Winner`;
+//         }
+//       }
+//       else if (arr1[j][i] == player2) {
+//         col2++;
+//         if (col2 == val) {
+//           result.classList.add("Winner");
+//           result.innerText = `Player ${player2} Winner`;
+//         }
+
+//       // Diagonal Wise
+//       if (i == j && arr1[i][j] == player2) {
+//         ODiag[k] = player2;
+//         k++;
+//         console.log(ODiag)
+//         if (ODiag.length == val) {
+//           result.classList.add("Winner");
+//           result.innerText = `Player ${player2} Winner`;
+//         }
+//       } else if (i == j && arr1[i][j] == player1) {
+//         XDiag[k1] = player1;
+//         k1++;
+//         console.log(XDiag)
+//         if (XDiag.length == val) {
+//           result.classList.add("Winner");
+//           result.innerText = `Player ${player1} Winner`;
+//         }
+//       }
+//       //2nd Diagonal
+//       if (arr1[i][j] == player2 && i + j == val - 1) {
+//         z++;
+//         if (z == val) {
+//           result.classList.add("Winner");
+//           result.innerText = `Player ${player2} Winner`;
+//         }
+//       }
+//       if (arr1[i][j] == player1 && i + j == val - 1) {
+//         x++;
+//         if (x == val) {
+//           result.classList.add("Winner");
+//           result.innerText = `Player ${player1} Winner`;
+//         }
+//       }
+//       if (rowLen == val || rowLen2 == val || col1 == val || col2 == val || ODiag.length == val || XDiag == val || z == val || x == val) {
+//           result.classList.add("Winner");
+//       } else if (rowLen != val || rowLen2 != val || col1 != val || col2 != val || ODiag.length != val || XDiag != val | z != val || x != val) {
+//         if (i == val - 1 && j == val - 1 && result.innerText !== 'Winner') {
+//           Movement1++;
+//           if (X_move == val * val ) {
+//             Tie2.classList.add("Looser");
+//             Tie2.innerText = "It's a Tie";
+//           }
+//         }
+//       }
+//     }
+//   }
+//   }
+// }
+
+// function Store2(variable, j, i) {
+//   arr1[j][i] = variable;
+// }
+
+
+
+
+
+
+
+
+
+
+
     </script>
   </body>
 </html>
