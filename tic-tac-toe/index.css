@@ -1,78 +1,298 @@
-#container2{
-    display: flex;
-    /* max-width: 100%; */
-    flex-direction: column;
-    /* padding: 10px; */
-    height: 25vh;
-}
-
-p {
-    position: relative;
-    margin-right: 15px;
-}
-.d-flex {
-display: flex;
-margin-top: 20px;
-}
-
-.box {
-    border: 2px solid rgb(98, 139, 51);
-    width: 25px;
-    border-radius: 5px;
-    padding: 15px;
-    height: 20px;
-    background-color: #ace79d;
-    cursor: pointer;
-}
-.disabled {
-    pointer-events: none;
-}
-.buttons {
-    display: flex;
-    margin-top: 20px;
-}
-button {
-    cursor: pointer;
-}
-button:hover {
-    color: black;
-    border-radius: 5px;
-}
-#one {
-    height: 50px;
-    width: 50px;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-#hide {
-    margin-left: 10px;
-}
-.container {
-    margin-left: 45%;
-}
-.Winner{
-max-width: 22%;
-position: relative;
-padding: 10px;
-color: white;
-border-radius: 5px;
-background-color: green;
-text-align: center;
-font-size: large;
-}
-
-.Looser{
-    max-width: 22%;
-    position: relative;
-    padding: 10px;
-    color: white;
-    border-radius: 5px;
-    background-color: rgb(238, 55, 55);
-    text-align: center;
-    font-size: large;
-    }
-#Winner2 {
-    margin-top: 5%;
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copy</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container1">
+        <h4>Enter Your Matrix Here</h4>
+        <!-- <input type="number" alt="Error" id="myText" value="45" /> -->
+        <input type="number" value="3" id="inp" />
+        <div class="buttons">
+          <div id="one">
+            <button id="start">Start</button>
+          </div>
+          <div id="two">
+            <button onclick="location.reload()">Restart</button>
+          </div>
+          <div><button id="hide">Copy</button></div>
+        </div>
+      </div>
+      <div id="container2">
+        
+      </div>
+      <!-- <div id="Winner2"> -->
+        <!-- <div id="Winner"></div> -->
+      <!-- </div> -->
+      <!-- <div id = 'Tie'></div> -->
+      </div>
 
 
+
+      <!-- Copy starts from here -->
+      <!-- <div class="ok">
+        <div id="container3"></div>
+        <div id="Winner1">
+          <p id="result"></p>
+        </div>
+        <div id = 'Tie2'></div>
+        <p id="Timer2"></p>
+      </div>
+    </div> -->
+
+    <script>
+              // if (obj["O"] == "") {
+        //   obj["O"] = `${player2} Won`;
+        //   WINNER();
+        //   console.log(obj)
+        // }
+        // rowLen = "";
+
+              //1st Method
+
+      // if((arr[i][j] == player2 && i == 0 && j == val - 1)) {
+      //     IInd_Diag_O[z] = player2;
+      //     z++;
+      //     console.log(z)
+      //     // console.log(IInd_Diag_O);
+      //   }
+      //   if((arr[i][j] == player2 && i == j)) {
+      //       IInd_Diag_O[z] = player2;
+      //   z++;
+      //   console.log(z);
+      // }
+      // if((arr[i][j] == player2 && i == val - 1 && j == 0 && i !== j)) {
+      //   IInd_Diag_O[z] = player2;
+      //   z++;
+      //   console.log(z);
+      // }
+      // if(z == 3) {
+      //     Win.innerText = `${player2} ok 2 Won`;
+      // }
+
+
+            // 2nd method
+
+      // if(arr[i][j] == player2 && i + j == (val - 1)) {
+      //   z++;
+      //   if(z == 3) {
+      //     console.log('Jeet gye be tum');
+      //     Win.innerText = `player ${player2} Won`;
+      //   }
+      // }
+      // if(arr[i][j] == player1 && i + j == (val - 1)) {
+      //   x++;
+      //   if(x == 3) {
+      //     console.log('Jeet gye be tum');
+      //     Win.innerText = `player ${player2} Won`
+      //   }
+      // }
+
+
+
+      //For Warning Logic
+
+//       function Warning_check(arr, i, j, player, rowLength) {
+//   if (rowLength == val - 1 && arr[i][j] == player) {
+//     Timer.style.display = 'none';
+//     // rowLen = 0;
+//   }
+// }
+
+// function Warning_check_Col(arr, i, j, player, col){
+//   if (col == val - 1 && arr[i][j] == player) {
+//     Timer.style.display = 'none';
+//     // rowLen = 0;
+//   }
+// }
+
+
+// function Warning_check_Diagonal(arr, i, j, player_1, dia) {
+//   if (dia == val - 1 && arr[i][j] == player_1) {
+//     Timer.style.display = 'none';
+//     // rowLen = 0;
+//   }
+// }
+
+
+
+
+
+
+
+// //Lets' copy the button using other function
+// let Timer2 = document.getElementById("Timer");
+// let result = document.getElementById("result");
+// let Tie2 = document.getElementById("Tie2");
+// let div2 = document.getElementById("ok");
+// let bool1 = true;
+// let arr1 = [];
+// let count1 = 0;
+// let Movement1 = 0;
+// function CopyBtn() {
+//   if (bool1) {
+//     bool1 = false;
+//     //This loop is because we can check condition in 2d array
+//     for (var i = 0; i < val; i++) {
+//       arr1[i];
+//       for (var j = 0; j < val; j++) {
+//         arr1[j] = [];
+//       }
+//     }
+
+//     //This loop is creating matrix
+//     //column Creation loop
+//     for (let i = 0; i < val; i++) {
+//       var parent1 = document.createElement("div");
+//       var container3 = document.getElementById("container3");
+//       parent1.classList.add("print");
+//       container3.appendChild(parent1);
+//       //Row Creation loop
+//       for (let j = 0; j < val; j++) {
+//         var div3 = document.createElement("div");
+//         div3.classList.add("box");
+//         div3.setAttribute("id", `${j}${i}`);
+//         let z = parent1.appendChild(div3);
+//         //onClick event on each box
+//         div3.addEventListener("click", () => {
+//           let k = document.getElementById(`${j}${i}`);
+
+//           if (z.innerText == "" && result.innerText == "") {
+//             //odd and even logic, if even player X will move else player O
+//             if (count1 % 2 == 0) {
+//               let a = z.innerText = player1;
+//               count1++;
+//               div3.addEventListener("click", Store2(a, j, i));
+//               if (a !== "") {
+//                 Inspect2(arr1, j, i);
+//               }
+//             } else {
+//               let b = (z.innerText = player2);
+//               count1++;
+//               div3.addEventListener("click", Store2(b, j, i));
+//               if (b !== "") {
+//                 Inspect2(arr1, j, i);
+//               }
+//             }
+//           }
+//         });
+//       }
+//     }
+//   }
+// }
+
+// function Inspect2(arr1) {
+
+//   let ODiag = [];
+//   let XDiag = [];
+//   let k = 0;
+//   let k1 = 0;
+//   //2nd Diagonal Variable
+//   let z = 0;
+//   let x = 0;
+//   for (let i = 0; i < val; i++) {
+//     let rowLen = 0;
+//     let rowLen2 = 0;
+//     let col1 = 0;
+//     let col2 = 0;
+//     for (let j = 0; j < val; j++) {
+//         if (arr1[i][j] == player2) {
+//         rowLen++;
+//       } else if (arr1[i][j] == player1) {
+//         rowLen2++;
+//       }
+//       if (rowLen2 == val) {
+//         result.classList.add("Winner");
+//         result.innerText = `Player ${player1} Winner`;
+//       }
+//       if (rowLen == val) {
+//         result.classList.add("Winner");
+//         result.innerText = `Player ${player2} Winner`;
+//       }
+//       //ColumnsWise
+//       if (arr1[j][i] == player1) {
+//         col1++;
+//         if (col1 == val) {
+//           result.classList.add("Winner");
+//           result.innerText = `Player ${player1} Winner`;
+//         }
+//       }
+//       else if (arr1[j][i] == player2) {
+//         col2++;
+//         if (col2 == val) {
+//           result.classList.add("Winner");
+//           result.innerText = `Player ${player2} Winner`;
+//         }
+
+//       // Diagonal Wise
+//       if (i == j && arr1[i][j] == player2) {
+//         ODiag[k] = player2;
+//         k++;
+//         console.log(ODiag)
+//         if (ODiag.length == val) {
+//           result.classList.add("Winner");
+//           result.innerText = `Player ${player2} Winner`;
+//         }
+//       } else if (i == j && arr1[i][j] == player1) {
+//         XDiag[k1] = player1;
+//         k1++;
+//         console.log(XDiag)
+//         if (XDiag.length == val) {
+//           result.classList.add("Winner");
+//           result.innerText = `Player ${player1} Winner`;
+//         }
+//       }
+//       //2nd Diagonal
+//       if (arr1[i][j] == player2 && i + j == val - 1) {
+//         z++;
+//         if (z == val) {
+//           result.classList.add("Winner");
+//           result.innerText = `Player ${player2} Winner`;
+//         }
+//       }
+//       if (arr1[i][j] == player1 && i + j == val - 1) {
+//         x++;
+//         if (x == val) {
+//           result.classList.add("Winner");
+//           result.innerText = `Player ${player1} Winner`;
+//         }
+//       }
+//       if (rowLen == val || rowLen2 == val || col1 == val || col2 == val || ODiag.length == val || XDiag == val || z == val || x == val) {
+//           result.classList.add("Winner");
+//       } else if (rowLen != val || rowLen2 != val || col1 != val || col2 != val || ODiag.length != val || XDiag != val | z != val || x != val) {
+//         if (i == val - 1 && j == val - 1 && result.innerText !== 'Winner') {
+//           Movement1++;
+//           if (X_move == val * val ) {
+//             Tie2.classList.add("Looser");
+//             Tie2.innerText = "It's a Tie";
+//           }
+//         }
+//       }
+//     }
+//   }
+//   }
+// }
+
+// function Store2(variable, j, i) {
+//   arr1[j][i] = variable;
+// }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
